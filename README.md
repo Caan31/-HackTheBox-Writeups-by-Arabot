@@ -4,8 +4,8 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-8-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
-[![Fácil](https://img.shields.io/badge/Fácil-8-00cc66?style=flat-square)](#-fácil)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-9-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Fácil](https://img.shields.io/badge/Fácil-9-00cc66?style=flat-square)](#-fácil)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
 > *"La mejor forma de aprender hacking es hackeando — y documentándolo."*
@@ -37,6 +37,7 @@ HackTheBox-Writeups-by-Arabot/
     ├── GRANDPA/   → Grandpa_Writeup.md + Imagenes/
     ├── IRKED/     → Irked_Writeup.md   + Imagenes/
     ├── JERRY/     → Jerry_Writeup.md   + Imagenes/
+    ├── KEEPER/    → Keeper_Writeup.md  + Imagenes/
     ├── KNIFE/     → Knife_Writeup.md   + Imagenes/
     ├── LAME/      → Lame_Writeup.md    + Imagenes/
     └── LEGACY/    → Legacy_Writeup.md  + Imagenes/
@@ -55,9 +56,10 @@ HackTheBox-Writeups-by-Arabot/
 | 3 | **Grandpa** | 🪟 | Nmap · IIS 6.0 · WebDAV · **CVE-2017-7269** (`ScStoragePathFromUrl`) · `SeImpersonatePrivilege` · `churrasco.exe` → SYSTEM | [📄 Ver](./facil/GRANDPA/Grandpa_Writeup.md) |
 | 4 | **Irked** | 🐧 | Nmap · UnrealIRCd 3.2.8.1 backdoor · Esteganografía con `steghide` · SUID binario `viewuser` → root | [📄 Ver](./facil/IRKED/Irked_Writeup.md) |
 | 5 | **Jerry** | 🪟 | Nmap · Apache Tomcat · Credenciales por defecto · Despliegue WAR · Reverse shell JSP → SYSTEM | [📄 Ver](./facil/JERRY/Jerry_Writeup.md) |
-| 6 | **Knife** | 🐧 | Nmap · `whatweb` · **PHP 8.1.0-dev backdoor** (`User-Agentt: zerodium…`) · Sudo `knife exec` (GTFOBins) → root | [📄 Ver](./facil/KNIFE/Knife_Writeup.md) |
-| 7 | **Lame** | 🐧 | Nmap · Samba 3.0.20 · **CVE-2007-2447** (Username Map Script) · Explotación manual desde `smbclient` → root directo | [📄 Ver](./facil/LAME/Lame_Writeup.md) |
-| 8 | **Legacy** | 🪟 | Nmap · SMB · Windows XP · **MS08-067** (CVE-2008-4250, NetAPI Buffer Overflow) · Metasploit → SYSTEM directo | [📄 Ver](./facil/LEGACY/Legacy_Writeup.md) |
+| 6 | **Keeper** | 🐧 | Nmap · Request Tracker (credenciales por defecto) · **CVE-2023-32784** (KeePass memory dump) · Clave PuTTY `.ppk` → root | [📄 Ver](./facil/KEEPER/Keeper_Writeup.md) |
+| 7 | **Knife** | 🐧 | Nmap · `whatweb` · **PHP 8.1.0-dev backdoor** (`User-Agentt: zerodium…`) · Sudo `knife exec` (GTFOBins) → root | [📄 Ver](./facil/KNIFE/Knife_Writeup.md) |
+| 8 | **Lame** | 🐧 | Nmap · Samba 3.0.20 · **CVE-2007-2447** (Username Map Script) · Explotación manual desde `smbclient` → root directo | [📄 Ver](./facil/LAME/Lame_Writeup.md) |
+| 9 | **Legacy** | 🪟 | Nmap · SMB · Windows XP · **MS08-067** (CVE-2008-4250, NetAPI Buffer Overflow) · Metasploit → SYSTEM directo | [📄 Ver](./facil/LEGACY/Legacy_Writeup.md) |
 
 ---
 
@@ -67,12 +69,14 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 
 | Categoría | Máquina(s) |
 |-----------|------------|
-| **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) |
+| **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (CVE-2023-32784) |
+| **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) |
 | **Backdoors en software** | [Irked](./facil/IRKED/Irked_Writeup.md) (UnrealIRCd) · [Knife](./facil/KNIFE/Knife_Writeup.md) (PHP 8.1.0-dev) |
 | **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) |
 | **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) |
 | **SUID / Linux Capabilities** | [Irked](./facil/IRKED/Irked_Writeup.md) (`viewuser`) · [Cap](./facil/CAP/Cap_Writeup.md) (`cap_setuid` en Python) |
 | **Privilege escalation Windows** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (churrasco / SeImpersonate) |
+| **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) |
 | **Análisis de red / PCAP** | [Cap](./facil/CAP/Cap_Writeup.md) (Wireshark + IDOR) |
 | **Esteganografía** | [Irked](./facil/IRKED/Irked_Writeup.md) (`steghide`) |
 | **CRON job hijacking** | [Bashed](./facil/BASH/Bashed_Writeup.md) |
@@ -114,7 +118,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 8 |
+| 🟢 Hack The Box | Estás aquí | 9 |
 
 ---
 
