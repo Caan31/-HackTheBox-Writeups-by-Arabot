@@ -4,8 +4,8 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-12-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
-[![Fácil](https://img.shields.io/badge/Fácil-12-00cc66?style=flat-square)](#-fácil)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-13-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Fácil](https://img.shields.io/badge/Fácil-13-00cc66?style=flat-square)](#-fácil)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
 > *"La mejor forma de aprender hacking es hackeando — y documentándolo."*
@@ -43,7 +43,8 @@ HackTheBox-Writeups-by-Arabot/
     ├── LEGACY/    → Legacy_Writeup.md  + Imagenes/
     ├── LOVE/      → Love_Writeup.md    + Imagenes/
     ├── MIRAI/     → Mirai_Writeup.md   + Imagenes/
-    └── NETMON/    → Netmon_Writeup.md  + Imagenes/
+    ├── NETMON/    → Netmon_Writeup.md  + Imagenes/
+    └── NIBBLES/   → Nibbles_Writeup.md + Imagenes/
 ```
 
 ---
@@ -66,6 +67,7 @@ HackTheBox-Writeups-by-Arabot/
 | 10 | **Love** | 🪟 | Nmap · Certificado SSL (virtual host) · wfuzz · **SSRF** · Voting System 1.0 RCE · **`AlwaysInstallElevated`** · msfvenom MSI → SYSTEM | [📄 Ver](./facil/LOVE/Love_Writeup.md) |
 | 11 | **Mirai** | 🐧 | Nmap · Raspberry Pi · Pi-hole · **Credenciales por defecto** (`pi:raspberry`) · `sudo NOPASSWD: ALL` · Recuperación forense con `strings` → root | [📄 Ver](./facil/MIRAI/Mirai_Writeup.md) |
 | 12 | **Netmon** | 🪟 | Nmap · FTP anónimo · Backup de PRTG (`PRTG Configuration.old.bak`) · Credenciales en claro · **CVE-2018-9276** (command injection) · `psexec` → SYSTEM | [📄 Ver](./facil/NETMON/Netmon_Writeup.md) |
+| 13 | **Nibbles** | 🐧 | Nmap · Gobuster · Nibbleblog 4.0.3 · Credenciales por defecto (`admin:nibbles`) · **Arbitrary File Upload** (plugin *My image*) · Reverse shell · `sudo NOPASSWD` sobre ruta inexistente → root | [📄 Ver](./facil/NIBBLES/Nibbles_Writeup.md) |
 
 ---
 
@@ -76,11 +78,11 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | Categoría | Máquina(s) |
 |-----------|------------|
 | **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (CVE-2023-32784) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (CVE-2018-9276) |
-| **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (Raspberry Pi) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (patrón `Base+Año`) |
+| **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (Raspberry Pi) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (patrón `Base+Año`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`admin:nibbles`) |
 | **Backdoors en software** | [Irked](./facil/IRKED/Irked_Writeup.md) (UnrealIRCd) · [Knife](./facil/KNIFE/Knife_Writeup.md) (PHP 8.1.0-dev) |
-| **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) · [Love](./facil/LOVE/Love_Writeup.md) (SSRF + RCE) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (PRTG command injection) |
+| **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) · [Love](./facil/LOVE/Love_Writeup.md) (SSRF + RCE) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (PRTG command injection) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (Nibbleblog file upload) |
 | **SSRF (Server-Side Request Forgery)** | [Love](./facil/LOVE/Love_Writeup.md) (File Scanner → servicio interno) |
-| **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`NOPASSWD: ALL`) |
+| **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`NOPASSWD: ALL`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`NOPASSWD` + path creation) |
 | **SUID / Linux Capabilities** | [Irked](./facil/IRKED/Irked_Writeup.md) (`viewuser`) · [Cap](./facil/CAP/Cap_Writeup.md) (`cap_setuid` en Python) |
 | **Privilege escalation Windows** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (churrasco / SeImpersonate) · [Love](./facil/LOVE/Love_Writeup.md) (`AlwaysInstallElevated`) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (servicio PRTG como SYSTEM) |
 | **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) |
@@ -98,7 +100,6 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 |---------|:--:|:----------:|:------:|
 | Blue | 🪟 | Fácil | 📋 Pendiente |
 | Shocker | 🐧 | Fácil | 📋 Pendiente |
-| Nibbles | 🐧 | Fácil | 📋 Pendiente |
 | Devel | 🪟 | Fácil | 📋 Pendiente |
 
 ---
@@ -125,7 +126,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 12 |
+| 🟢 Hack The Box | Estás aquí | 13 |
 
 ---
 
