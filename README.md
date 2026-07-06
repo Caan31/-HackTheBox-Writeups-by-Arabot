@@ -4,8 +4,8 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-16-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
-[![Fácil](https://img.shields.io/badge/Fácil-16-00cc66?style=flat-square)](#-fácil)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-17-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Fácil](https://img.shields.io/badge/Fácil-17-00cc66?style=flat-square)](#-fácil)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
 > *"La mejor forma de aprender hacking es hackeando — y documentándolo."*
@@ -47,7 +47,8 @@ HackTheBox-Writeups-by-Arabot/
     ├── NIBBLES/   → Nibbles_Writeup.md + Imagenes/
     ├── PREVISE/   → Previse_Writeup.md + Imagenes/
     ├── RETURN/       → Return_Writeup.md       + Imagenes/
-    └── SCRIPTKIDDIE/ → ScriptKiddie_Writeup.md + Imagenes/
+    ├── SCRIPTKIDDIE/ → ScriptKiddie_Writeup.md + Imagenes/
+    └── SHOCKER/      → Shocker_Writeup.md      + Imagenes/
 ```
 
 ---
@@ -74,6 +75,7 @@ HackTheBox-Writeups-by-Arabot/
 | 14 | **Previse** | 🐧 | Nmap · Gobuster · Burp Suite · **Forced Browsing** (bypass 302) · Creación de cuenta vía `accounts.php` · `siteBackup.zip` · **Command Injection** en `logs.php` · Hashcat (`$1$` MD5 crypt) · `sudo` + **PATH Hijacking** → root | [📄 Ver](./facil/PREVISE/Previse_Writeup.md) |
 | 15 | **Return** | 🪟 | Nmap · Active Directory (`return.local`) · Panel web de impresora · **Rogue LDAP Server** (captura de credenciales en claro) · `crackmapexec` + `evil-winrm` · Grupo **Server Operators** · `sc.exe config binPath` (service hijacking) → SYSTEM | [📄 Ver](./facil/RETURN/Return_Writeup.md) |
 | 16 | **ScriptKiddie** | 🐧 | Nmap · Flask/Werkzeug (5000) · **CVE-2020-7384** (msfvenom APK template injection) · Reverse shell · Pivot vía inyección en log (`scanlosers.sh`) · `sudo NOPASSWD` + `msfconsole` → root | [📄 Ver](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) |
+| 17 | **Shocker** | 🐧 | Nmap · Wfuzz (dir + ext) · Apache `mod_cgi` · **Shellshock (CVE-2014-6271)** vía `User-Agent` en `/cgi-bin/user.sh` · Reverse shell · `sudo NOPASSWD` sobre `perl` (GTFOBins) → root | [📄 Ver](./facil/SHOCKER/Shocker_Writeup.md) |
 
 ---
 
@@ -83,12 +85,12 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 
 | Categoría | Máquina(s) |
 |-----------|------------|
-| **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (CVE-2023-32784) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (CVE-2018-9276) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (CVE-2020-7384) |
+| **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (CVE-2023-32784) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (CVE-2018-9276) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (CVE-2020-7384) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (CVE-2014-6271 / Shellshock) |
 | **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (Raspberry Pi) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (patrón `Base+Año`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`admin:nibbles`) |
 | **Backdoors en software** | [Irked](./facil/IRKED/Irked_Writeup.md) (UnrealIRCd) · [Knife](./facil/KNIFE/Knife_Writeup.md) (PHP 8.1.0-dev) |
-| **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) · [Love](./facil/LOVE/Love_Writeup.md) (SSRF + RCE) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (PRTG command injection) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (Nibbleblog file upload) · [Previse](./facil/PREVISE/Previse_Writeup.md) (forced browsing + command injection) · [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + service hijack) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (Flask wrapper + msfvenom) |
+| **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) · [Love](./facil/LOVE/Love_Writeup.md) (SSRF + RCE) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (PRTG command injection) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (Nibbleblog file upload) · [Previse](./facil/PREVISE/Previse_Writeup.md) (forced browsing + command injection) · [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + service hijack) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (Flask wrapper + msfvenom) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (Shellshock CGI) |
 | **SSRF (Server-Side Request Forgery)** | [Love](./facil/LOVE/Love_Writeup.md) (File Scanner → servicio interno) |
-| **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`NOPASSWD: ALL`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`NOPASSWD` + path creation) · [Previse](./facil/PREVISE/Previse_Writeup.md) (`sudo` + PATH hijacking) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (`sudo msfconsole` → `!bash`) |
+| **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`NOPASSWD: ALL`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`NOPASSWD` + path creation) · [Previse](./facil/PREVISE/Previse_Writeup.md) (`sudo` + PATH hijacking) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (`sudo msfconsole` → `!bash`) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (`sudo perl -e 'exec ...'`) |
 | **SUID / Linux Capabilities** | [Irked](./facil/IRKED/Irked_Writeup.md) (`viewuser`) · [Cap](./facil/CAP/Cap_Writeup.md) (`cap_setuid` en Python) |
 | **Privilege escalation Windows** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (churrasco / SeImpersonate) · [Love](./facil/LOVE/Love_Writeup.md) (`AlwaysInstallElevated`) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (servicio PRTG como SYSTEM) · [Return](./facil/RETURN/Return_Writeup.md) (Server Operators + `sc.exe binPath`) |
 | **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) |
@@ -105,7 +107,6 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | Máquina | SO | Dificultad | Estado |
 |---------|:--:|:----------:|:------:|
 | Blue | 🪟 | Fácil | 📋 Pendiente |
-| Shocker | 🐧 | Fácil | 📋 Pendiente |
 | Devel | 🪟 | Fácil | 📋 Pendiente |
 
 ---
@@ -132,7 +133,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 16 |
+| 🟢 Hack The Box | Estás aquí | 17 |
 
 ---
 
