@@ -4,8 +4,8 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-17-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
-[![Fácil](https://img.shields.io/badge/Fácil-17-00cc66?style=flat-square)](#-fácil)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-18-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Fácil](https://img.shields.io/badge/Fácil-18-00cc66?style=flat-square)](#-fácil)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
 > *"La mejor forma de aprender hacking es hackeando — y documentándolo."*
@@ -48,7 +48,8 @@ HackTheBox-Writeups-by-Arabot/
     ├── PREVISE/   → Previse_Writeup.md + Imagenes/
     ├── RETURN/       → Return_Writeup.md       + Imagenes/
     ├── SCRIPTKIDDIE/ → ScriptKiddie_Writeup.md + Imagenes/
-    └── SHOCKER/      → Shocker_Writeup.md      + Imagenes/
+    ├── SHOCKER/      → Shocker_Writeup.md      + Imagenes/
+    └── SPECTRA/      → Spectra_Writeup.md      + Imagenes/
 ```
 
 ---
@@ -76,6 +77,7 @@ HackTheBox-Writeups-by-Arabot/
 | 15 | **Return** | 🪟 | Nmap · Active Directory (`return.local`) · Panel web de impresora · **Rogue LDAP Server** (captura de credenciales en claro) · `crackmapexec` + `evil-winrm` · Grupo **Server Operators** · `sc.exe config binPath` (service hijacking) → SYSTEM | [📄 Ver](./facil/RETURN/Return_Writeup.md) |
 | 16 | **ScriptKiddie** | 🐧 | Nmap · Flask/Werkzeug (5000) · **CVE-2020-7384** (msfvenom APK template injection) · Reverse shell · Pivot vía inyección en log (`scanlosers.sh`) · `sudo NOPASSWD` + `msfconsole` → root | [📄 Ver](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) |
 | 17 | **Shocker** | 🐧 | Nmap · Wfuzz (dir + ext) · Apache `mod_cgi` · **Shellshock (CVE-2014-6271)** vía `User-Agent` en `/cgi-bin/user.sh` · Reverse shell · `sudo NOPASSWD` sobre `perl` (GTFOBins) → root | [📄 Ver](./facil/SHOCKER/Shocker_Writeup.md) |
+| 18 | **Spectra** | 🐧 | Nmap · Virtual host `spectra.htb` · Directory listing · `wp-config.php.save` filtrado · Reutilización de credenciales en WordPress admin · Editor de plugins (RCE) · Reverse shell · ChromeOS/Upstart · Job `initctl` escribible (`chmod u+s`) → root | [📄 Ver](./facil/SPECTRA/Spectra_Writeup.md) |
 
 ---
 
@@ -133,7 +135,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 17 |
+| 🟢 Hack The Box | Estás aquí | 18 |
 
 ---
 
