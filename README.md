@@ -4,8 +4,8 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-23-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
-[![Fácil](https://img.shields.io/badge/Fácil-20-00cc66?style=flat-square)](#-fácil)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-24-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Fácil](https://img.shields.io/badge/Fácil-21-00cc66?style=flat-square)](#-fácil)
 [![Medio](https://img.shields.io/badge/Medio-3-ffb703?style=flat-square)](#-medio)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
@@ -33,6 +33,7 @@ Todas las máquinas incluyen **capturas de pantalla reales** de cada paso. El ob
 HackTheBox-Writeups-by-Arabot/
 ├── README.md
 └── facil/
+    ├── ACCESS/    → Access_Writeup.md  + Imagenes/
     ├── BASH/      → Bashed_Writeup.md  + Imagenes/
     ├── CAP/       → Cap_Writeup.md     + Imagenes/
     ├── GRANDPA/   → Grandpa_Writeup.md + Imagenes/
@@ -67,26 +68,27 @@ HackTheBox-Writeups-by-Arabot/
 
 | # | Máquina | SO | Técnicas principales | Writeup |
 |:-:|---------|:--:|---------------------|:-------:|
-| 1 | **Bashed** | 🐧 | Nmap · Gobuster · Webshell `phpbash.php` · Sudo `scriptmanager` · CRON job hijacking → root | [📄 Ver](./facil/BASH/Bashed_Writeup.md) |
-| 2 | **Cap** | 🐧 | Nmap · **IDOR** en `/data/<id>` · Análisis de PCAP en Wireshark · Credenciales FTP en claro · `cap_setuid` sobre Python → root | [📄 Ver](./facil/CAP/Cap_Writeup.md) |
-| 3 | **Grandpa** | 🪟 | Nmap · IIS 6.0 · WebDAV · **CVE-2017-7269** (`ScStoragePathFromUrl`) · `SeImpersonatePrivilege` · `churrasco.exe` → SYSTEM | [📄 Ver](./facil/GRANDPA/Grandpa_Writeup.md) |
-| 4 | **Irked** | 🐧 | Nmap · UnrealIRCd 3.2.8.1 backdoor · Esteganografía con `steghide` · SUID binario `viewuser` → root | [📄 Ver](./facil/IRKED/Irked_Writeup.md) |
-| 5 | **Jerry** | 🪟 | Nmap · Apache Tomcat · Credenciales por defecto · Despliegue WAR · Reverse shell JSP → SYSTEM | [📄 Ver](./facil/JERRY/Jerry_Writeup.md) |
-| 6 | **Keeper** | 🐧 | Nmap · Request Tracker (credenciales por defecto) · **CVE-2023-32784** (KeePass memory dump) · Clave PuTTY `.ppk` → root | [📄 Ver](./facil/KEEPER/Keeper_Writeup.md) |
-| 7 | **Knife** | 🐧 | Nmap · `whatweb` · **PHP 8.1.0-dev backdoor** (`User-Agentt: zerodium…`) · Sudo `knife exec` (GTFOBins) → root | [📄 Ver](./facil/KNIFE/Knife_Writeup.md) |
-| 8 | **Lame** | 🐧 | Nmap · Samba 3.0.20 · **CVE-2007-2447** (Username Map Script) · Explotación manual desde `smbclient` → root directo | [📄 Ver](./facil/LAME/Lame_Writeup.md) |
-| 9 | **Legacy** | 🪟 | Nmap · SMB · Windows XP · **MS08-067** (CVE-2008-4250, NetAPI Buffer Overflow) · Metasploit → SYSTEM directo | [📄 Ver](./facil/LEGACY/Legacy_Writeup.md) |
-| 10 | **Love** | 🪟 | Nmap · Certificado SSL (virtual host) · wfuzz · **SSRF** · Voting System 1.0 RCE · **`AlwaysInstallElevated`** · msfvenom MSI → SYSTEM | [📄 Ver](./facil/LOVE/Love_Writeup.md) |
-| 11 | **Mirai** | 🐧 | Nmap · Raspberry Pi · Pi-hole · **Credenciales por defecto** (`pi:raspberry`) · `sudo NOPASSWD: ALL` · Recuperación forense con `strings` → root | [📄 Ver](./facil/MIRAI/Mirai_Writeup.md) |
-| 12 | **Netmon** | 🪟 | Nmap · FTP anónimo · Backup de PRTG (`PRTG Configuration.old.bak`) · Credenciales en claro · **CVE-2018-9276** (command injection) · `psexec` → SYSTEM | [📄 Ver](./facil/NETMON/Netmon_Writeup.md) |
-| 13 | **Nibbles** | 🐧 | Nmap · Gobuster · Nibbleblog 4.0.3 · Credenciales por defecto (`admin:nibbles`) · **Arbitrary File Upload** (plugin *My image*) · Reverse shell · `sudo NOPASSWD` sobre ruta inexistente → root | [📄 Ver](./facil/NIBBLES/Nibbles_Writeup.md) |
-| 14 | **Previse** | 🐧 | Nmap · Gobuster · Burp Suite · **Forced Browsing** (bypass 302) · Creación de cuenta vía `accounts.php` · `siteBackup.zip` · **Command Injection** en `logs.php` · Hashcat (`$1$` MD5 crypt) · `sudo` + **PATH Hijacking** → root | [📄 Ver](./facil/PREVISE/Previse_Writeup.md) |
-| 15 | **Return** | 🪟 | Nmap · Active Directory (`return.local`) · Panel web de impresora · **Rogue LDAP Server** (captura de credenciales en claro) · `crackmapexec` + `evil-winrm` · Grupo **Server Operators** · `sc.exe config binPath` (service hijacking) → SYSTEM | [📄 Ver](./facil/RETURN/Return_Writeup.md) |
-| 16 | **ScriptKiddie** | 🐧 | Nmap · Flask/Werkzeug (5000) · **CVE-2020-7384** (msfvenom APK template injection) · Reverse shell · Pivot vía inyección en log (`scanlosers.sh`) · `sudo NOPASSWD` + `msfconsole` → root | [📄 Ver](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) |
-| 17 | **Shocker** | 🐧 | Nmap · Wfuzz (dir + ext) · Apache `mod_cgi` · **Shellshock (CVE-2014-6271)** vía `User-Agent` en `/cgi-bin/user.sh` · Reverse shell · `sudo NOPASSWD` sobre `perl` (GTFOBins) → root | [📄 Ver](./facil/SHOCKER/Shocker_Writeup.md) |
-| 18 | **Spectra** | 🐧 | Nmap · Virtual host `spectra.htb` · Directory listing · `wp-config.php.save` filtrado · Reutilización de credenciales en WordPress admin · Editor de plugins (RCE) · Reverse shell · ChromeOS/Upstart · Job `initctl` escribible (`chmod u+s`) → root | [📄 Ver](./facil/SPECTRA/Spectra_Writeup.md) |
-| 19 | **Toolbox** | 🪟 | Nmap · Virtual host `admin.megalogistic.com` · **PostgreSQL SQL Injection** (stacked queries) · RCE vía `COPY FROM PROGRAM` · Reverse shell · Pivot a Boot2Docker (`docker:tcuser`) · Carpeta compartida `/c` de Docker Toolbox · Robo de clave SSH de Administrator → Administrator | [📄 Ver](./facil/TOOLBOX/Toolbox_Writeup.md) |
-| 20 | **Validation** | 🐧 | Nmap · **SQL Injection** en formulario de registro (`country`) · Error-based (ruta absoluta filtrada) · RCE vía `UNION SELECT ... INTO OUTFILE` (webshell) · Reverse shell · Credenciales de `config.php` reutilizadas en `su root` → root | [📄 Ver](./facil/VALIDATION/Validation_Writeup.md) |
+| 1 | **Access** | 🪟 | Nmap · FTP anónimo · Base de datos Access (`.mdb` con `mdbtools`) · ZIP con contraseña reutilizada · PST de Outlook (`readpst`) · Telnet · Credenciales cacheadas de `runas /savecred` → Administrator | [📄 Ver](./facil/ACCESS/Access_Writeup.md) |
+| 2 | **Bashed** | 🐧 | Nmap · Gobuster · Webshell `phpbash.php` · Sudo `scriptmanager` · CRON job hijacking → root | [📄 Ver](./facil/BASH/Bashed_Writeup.md) |
+| 3 | **Cap** | 🐧 | Nmap · **IDOR** en `/data/<id>` · Análisis de PCAP en Wireshark · Credenciales FTP en claro · `cap_setuid` sobre Python → root | [📄 Ver](./facil/CAP/Cap_Writeup.md) |
+| 4 | **Grandpa** | 🪟 | Nmap · IIS 6.0 · WebDAV · **CVE-2017-7269** (`ScStoragePathFromUrl`) · `SeImpersonatePrivilege` · `churrasco.exe` → SYSTEM | [📄 Ver](./facil/GRANDPA/Grandpa_Writeup.md) |
+| 5 | **Irked** | 🐧 | Nmap · UnrealIRCd 3.2.8.1 backdoor · Esteganografía con `steghide` · SUID binario `viewuser` → root | [📄 Ver](./facil/IRKED/Irked_Writeup.md) |
+| 6 | **Jerry** | 🪟 | Nmap · Apache Tomcat · Credenciales por defecto · Despliegue WAR · Reverse shell JSP → SYSTEM | [📄 Ver](./facil/JERRY/Jerry_Writeup.md) |
+| 7 | **Keeper** | 🐧 | Nmap · Request Tracker (credenciales por defecto) · **CVE-2023-32784** (KeePass memory dump) · Clave PuTTY `.ppk` → root | [📄 Ver](./facil/KEEPER/Keeper_Writeup.md) |
+| 8 | **Knife** | 🐧 | Nmap · `whatweb` · **PHP 8.1.0-dev backdoor** (`User-Agentt: zerodium…`) · Sudo `knife exec` (GTFOBins) → root | [📄 Ver](./facil/KNIFE/Knife_Writeup.md) |
+| 9 | **Lame** | 🐧 | Nmap · Samba 3.0.20 · **CVE-2007-2447** (Username Map Script) · Explotación manual desde `smbclient` → root directo | [📄 Ver](./facil/LAME/Lame_Writeup.md) |
+| 10 | **Legacy** | 🪟 | Nmap · SMB · Windows XP · **MS08-067** (CVE-2008-4250, NetAPI Buffer Overflow) · Metasploit → SYSTEM directo | [📄 Ver](./facil/LEGACY/Legacy_Writeup.md) |
+| 11 | **Love** | 🪟 | Nmap · Certificado SSL (virtual host) · wfuzz · **SSRF** · Voting System 1.0 RCE · **`AlwaysInstallElevated`** · msfvenom MSI → SYSTEM | [📄 Ver](./facil/LOVE/Love_Writeup.md) |
+| 12 | **Mirai** | 🐧 | Nmap · Raspberry Pi · Pi-hole · **Credenciales por defecto** (`pi:raspberry`) · `sudo NOPASSWD: ALL` · Recuperación forense con `strings` → root | [📄 Ver](./facil/MIRAI/Mirai_Writeup.md) |
+| 13 | **Netmon** | 🪟 | Nmap · FTP anónimo · Backup de PRTG (`PRTG Configuration.old.bak`) · Credenciales en claro · **CVE-2018-9276** (command injection) · `psexec` → SYSTEM | [📄 Ver](./facil/NETMON/Netmon_Writeup.md) |
+| 14 | **Nibbles** | 🐧 | Nmap · Gobuster · Nibbleblog 4.0.3 · Credenciales por defecto (`admin:nibbles`) · **Arbitrary File Upload** (plugin *My image*) · Reverse shell · `sudo NOPASSWD` sobre ruta inexistente → root | [📄 Ver](./facil/NIBBLES/Nibbles_Writeup.md) |
+| 15 | **Previse** | 🐧 | Nmap · Gobuster · Burp Suite · **Forced Browsing** (bypass 302) · Creación de cuenta vía `accounts.php` · `siteBackup.zip` · **Command Injection** en `logs.php` · Hashcat (`$1$` MD5 crypt) · `sudo` + **PATH Hijacking** → root | [📄 Ver](./facil/PREVISE/Previse_Writeup.md) |
+| 16 | **Return** | 🪟 | Nmap · Active Directory (`return.local`) · Panel web de impresora · **Rogue LDAP Server** (captura de credenciales en claro) · `crackmapexec` + `evil-winrm` · Grupo **Server Operators** · `sc.exe config binPath` (service hijacking) → SYSTEM | [📄 Ver](./facil/RETURN/Return_Writeup.md) |
+| 17 | **ScriptKiddie** | 🐧 | Nmap · Flask/Werkzeug (5000) · **CVE-2020-7384** (msfvenom APK template injection) · Reverse shell · Pivot vía inyección en log (`scanlosers.sh`) · `sudo NOPASSWD` + `msfconsole` → root | [📄 Ver](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) |
+| 18 | **Shocker** | 🐧 | Nmap · Wfuzz (dir + ext) · Apache `mod_cgi` · **Shellshock (CVE-2014-6271)** vía `User-Agent` en `/cgi-bin/user.sh` · Reverse shell · `sudo NOPASSWD` sobre `perl` (GTFOBins) → root | [📄 Ver](./facil/SHOCKER/Shocker_Writeup.md) |
+| 19 | **Spectra** | 🐧 | Nmap · Virtual host `spectra.htb` · Directory listing · `wp-config.php.save` filtrado · Reutilización de credenciales en WordPress admin · Editor de plugins (RCE) · Reverse shell · ChromeOS/Upstart · Job `initctl` escribible (`chmod u+s`) → root | [📄 Ver](./facil/SPECTRA/Spectra_Writeup.md) |
+| 20 | **Toolbox** | 🪟 | Nmap · Virtual host `admin.megalogistic.com` · **PostgreSQL SQL Injection** (stacked queries) · RCE vía `COPY FROM PROGRAM` · Reverse shell · Pivot a Boot2Docker (`docker:tcuser`) · Carpeta compartida `/c` de Docker Toolbox · Robo de clave SSH de Administrator → Administrator | [📄 Ver](./facil/TOOLBOX/Toolbox_Writeup.md) |
+| 21 | **Validation** | 🐧 | Nmap · **SQL Injection** en formulario de registro (`country`) · Error-based (ruta absoluta filtrada) · RCE vía `UNION SELECT ... INTO OUTFILE` (webshell) · Reverse shell · Credenciales de `config.php` reutilizadas en `su root` → root | [📄 Ver](./facil/VALIDATION/Validation_Writeup.md) |
 
 ---
 
@@ -116,10 +118,10 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **SSRF (Server-Side Request Forgery)** | [Love](./facil/LOVE/Love_Writeup.md) (File Scanner → servicio interno) |
 | **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`NOPASSWD: ALL`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`NOPASSWD` + path creation) · [Previse](./facil/PREVISE/Previse_Writeup.md) (`sudo` + PATH hijacking) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (`sudo msfconsole` → `!bash`) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (`sudo perl -e 'exec ...'`) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (escape de `rbash` con `tar`) |
 | **SUID / Linux Capabilities** | [Irked](./facil/IRKED/Irked_Writeup.md) (`viewuser`) · [Cap](./facil/CAP/Cap_Writeup.md) (`cap_setuid` en Python) |
-| **Privilege escalation Windows** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (churrasco / SeImpersonate) · [Love](./facil/LOVE/Love_Writeup.md) (`AlwaysInstallElevated`) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (servicio PRTG como SYSTEM) · [Return](./facil/RETURN/Return_Writeup.md) (Server Operators + `sc.exe binPath`) |
+| **Privilege escalation Windows** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (churrasco / SeImpersonate) · [Love](./facil/LOVE/Love_Writeup.md) (`AlwaysInstallElevated`) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (servicio PRTG como SYSTEM) · [Return](./facil/RETURN/Return_Writeup.md) (Server Operators + `sc.exe binPath`) · [Access](./facil/ACCESS/Access_Writeup.md) (`runas /savecred` cacheado) |
 | **Análisis de red / PCAP** | [Cap](./facil/CAP/Cap_Writeup.md) (Wireshark + IDOR) |
 | **Esteganografía** | [Irked](./facil/IRKED/Irked_Writeup.md) (`steghide`) · [Apocalyst](./medio/APOCALYST/Apocalyst_Writeup.md) (`steghide`, diccionario de contraseñas oculto) |
-| **Análisis forense / recuperación de datos** | [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`strings` sobre `/dev/sdb`) |
+| **Análisis forense / recuperación de datos** | [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`strings` sobre `/dev/sdb`) · [Access](./facil/ACCESS/Access_Writeup.md) (`.mdb` con `mdbtools`, `.pst` con `readpst`) |
 | **CRON job hijacking** | [Bashed](./facil/BASH/Bashed_Writeup.md) |
 | **SMB enumeration & exploitation** | [Lame](./facil/LAME/Lame_Writeup.md) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) |
 | **Permisos de ficheros del sistema mal configurados** | [Apocalyst](./medio/APOCALYST/Apocalyst_Writeup.md) (`/etc/passwd` con permisos 666 → root) |
@@ -128,6 +130,7 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **Análisis de imágenes Docker** | [Bolt](./medio/BOLT/Bolt_Writeup.md) (capas, código fuente y base de datos filtrados) |
 | **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (Passbolt, secretos PGP) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (gestor de contraseñas de Firefox) |
 | **PATH hijacking** | [Previse](./facil/PREVISE/Previse_Writeup.md) (sudo + PATH) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (`rbash` con `PATH` restringido) |
+| **FTP anónimo** | [Netmon](./facil/NETMON/Netmon_Writeup.md) · [Access](./facil/ACCESS/Access_Writeup.md) (backup `.mdb` + ZIP protegido) |
 
 ---
 
@@ -162,7 +165,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 23 |
+| 🟢 Hack The Box | Estás aquí | 24 |
 
 ---
 
