@@ -4,8 +4,8 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-27-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
-[![Fácil](https://img.shields.io/badge/Fácil-24-00cc66?style=flat-square)](#-fácil)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-28-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Fácil](https://img.shields.io/badge/Fácil-25-00cc66?style=flat-square)](#-fácil)
 [![Medio](https://img.shields.io/badge/Medio-3-ffb703?style=flat-square)](#-medio)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
@@ -52,6 +52,7 @@ HackTheBox-Writeups-by-Arabot/
     ├── NIBBLES/   → Nibbles_Writeup.md + Imagenes/
     ├── PREVISE/   → Previse_Writeup.md + Imagenes/
     ├── RETURN/       → Return_Writeup.md       + Imagenes/
+    ├── SAUNA/        → Sauna_Writeup.md        + Imagenes/
     ├── SCRIPTKIDDIE/ → ScriptKiddie_Writeup.md + Imagenes/
     ├── SHOCKER/      → Shocker_Writeup.md      + Imagenes/
     ├── SPECTRA/      → Spectra_Writeup.md      + Imagenes/
@@ -90,11 +91,12 @@ HackTheBox-Writeups-by-Arabot/
 | 17 | **Nibbles** | 🐧 | Nmap · Gobuster · Nibbleblog 4.0.3 · Credenciales por defecto (`admin:nibbles`) · **Arbitrary File Upload** (plugin *My image*) · Reverse shell · `sudo NOPASSWD` sobre ruta inexistente → root | [📄 Ver](./facil/NIBBLES/Nibbles_Writeup.md) |
 | 18 | **Previse** | 🐧 | Nmap · Gobuster · Burp Suite · **Forced Browsing** (bypass 302) · Creación de cuenta vía `accounts.php` · `siteBackup.zip` · **Command Injection** en `logs.php` · Hashcat (`$1$` MD5 crypt) · `sudo` + **PATH Hijacking** → root | [📄 Ver](./facil/PREVISE/Previse_Writeup.md) |
 | 19 | **Return** | 🪟 | Nmap · Active Directory (`return.local`) · Panel web de impresora · **Rogue LDAP Server** (captura de credenciales en claro) · `crackmapexec` + `evil-winrm` · Grupo **Server Operators** · `sc.exe config binPath` (service hijacking) → SYSTEM | [📄 Ver](./facil/RETURN/Return_Writeup.md) |
-| 20 | **ScriptKiddie** | 🐧 | Nmap · Flask/Werkzeug (5000) · **CVE-2020-7384** (msfvenom APK template injection) · Reverse shell · Pivot vía inyección en log (`scanlosers.sh`) · `sudo NOPASSWD` + `msfconsole` → root | [📄 Ver](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) |
-| 21 | **Shocker** | 🐧 | Nmap · Wfuzz (dir + ext) · Apache `mod_cgi` · **Shellshock (CVE-2014-6271)** vía `User-Agent` en `/cgi-bin/user.sh` · Reverse shell · `sudo NOPASSWD` sobre `perl` (GTFOBins) → root | [📄 Ver](./facil/SHOCKER/Shocker_Writeup.md) |
-| 22 | **Spectra** | 🐧 | Nmap · Virtual host `spectra.htb` · Directory listing · `wp-config.php.save` filtrado · Reutilización de credenciales en WordPress admin · Editor de plugins (RCE) · Reverse shell · ChromeOS/Upstart · Job `initctl` escribible (`chmod u+s`) → root | [📄 Ver](./facil/SPECTRA/Spectra_Writeup.md) |
-| 23 | **Toolbox** | 🪟 | Nmap · Virtual host `admin.megalogistic.com` · **PostgreSQL SQL Injection** (stacked queries) · RCE vía `COPY FROM PROGRAM` · Reverse shell · Pivot a Boot2Docker (`docker:tcuser`) · Carpeta compartida `/c` de Docker Toolbox · Robo de clave SSH de Administrator → Administrator | [📄 Ver](./facil/TOOLBOX/Toolbox_Writeup.md) |
-| 24 | **Validation** | 🐧 | Nmap · **SQL Injection** en formulario de registro (`country`) · Error-based (ruta absoluta filtrada) · RCE vía `UNION SELECT ... INTO OUTFILE` (webshell) · Reverse shell · Credenciales de `config.php` reutilizadas en `su root` → root | [📄 Ver](./facil/VALIDATION/Validation_Writeup.md) |
+| 20 | **Sauna** | 🪟 | Nmap · Active Directory (`EGOTISTICAL-BANK.LOCAL`) · Enumeración LDAP anónima · OSINT web (plantilla de empleados) · `kerbrute` · **AS-REP Roasting** (`GetNPUsers`) · AutoLogon (WinPEAS) · BloodHound · **DCSync** (`secretsdump`) → SYSTEM | [📄 Ver](./facil/SAUNA/Sauna_Writeup.md) |
+| 21 | **ScriptKiddie** | 🐧 | Nmap · Flask/Werkzeug (5000) · **CVE-2020-7384** (msfvenom APK template injection) · Reverse shell · Pivot vía inyección en log (`scanlosers.sh`) · `sudo NOPASSWD` + `msfconsole` → root | [📄 Ver](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) |
+| 22 | **Shocker** | 🐧 | Nmap · Wfuzz (dir + ext) · Apache `mod_cgi` · **Shellshock (CVE-2014-6271)** vía `User-Agent` en `/cgi-bin/user.sh` · Reverse shell · `sudo NOPASSWD` sobre `perl` (GTFOBins) → root | [📄 Ver](./facil/SHOCKER/Shocker_Writeup.md) |
+| 23 | **Spectra** | 🐧 | Nmap · Virtual host `spectra.htb` · Directory listing · `wp-config.php.save` filtrado · Reutilización de credenciales en WordPress admin · Editor de plugins (RCE) · Reverse shell · ChromeOS/Upstart · Job `initctl` escribible (`chmod u+s`) → root | [📄 Ver](./facil/SPECTRA/Spectra_Writeup.md) |
+| 24 | **Toolbox** | 🪟 | Nmap · Virtual host `admin.megalogistic.com` · **PostgreSQL SQL Injection** (stacked queries) · RCE vía `COPY FROM PROGRAM` · Reverse shell · Pivot a Boot2Docker (`docker:tcuser`) · Carpeta compartida `/c` de Docker Toolbox · Robo de clave SSH de Administrator → Administrator | [📄 Ver](./facil/TOOLBOX/Toolbox_Writeup.md) |
+| 25 | **Validation** | 🐧 | Nmap · **SQL Injection** en formulario de registro (`country`) · Error-based (ruta absoluta filtrada) · RCE vía `UNION SELECT ... INTO OUTFILE` (webshell) · Reverse shell · Credenciales de `config.php` reutilizadas en `su root` → root | [📄 Ver](./facil/VALIDATION/Validation_Writeup.md) |
 
 ---
 
@@ -117,7 +119,7 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | Categoría | Máquina(s) |
 |-----------|------------|
 | **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (CVE-2023-32784) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (CVE-2018-9276) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (CVE-2020-7384) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (CVE-2014-6271 / Shellshock) · [Driver](./facil/DRIVER/Driver_Writeup.md) (CVE-2021-1675 / PrintNightmare) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (CVE-2025-24071, fuga NTLM vía `.library-ms`) |
-| **Active Directory** | [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + Server Operators) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (abuso de ACLs con `bloodyAD`, Shadow Credentials) |
+| **Active Directory** | [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + Server Operators) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (abuso de ACLs con `bloodyAD`, Shadow Credentials) · [Sauna](./facil/SAUNA/Sauna_Writeup.md) (AS-REP Roasting, AutoLogon, DCSync) |
 | **ADCS / ESC attacks** | [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (**ESC16** — extensión de seguridad deshabilitada en la CA) |
 | **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (Raspberry Pi) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (patrón `Base+Año`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`admin:nibbles`) · [Toolbox](./facil/TOOLBOX/Toolbox_Writeup.md) (Boot2Docker `docker:tcuser`) · [Driver](./facil/DRIVER/Driver_Writeup.md) (`admin:admin`) |
 | **Backdoors en software** | [Irked](./facil/IRKED/Irked_Writeup.md) (UnrealIRCd) · [Knife](./facil/KNIFE/Knife_Writeup.md) (PHP 8.1.0-dev) |
@@ -142,6 +144,9 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **Cracking de hashes (John / Hashcat)** | [Previse](./facil/PREVISE/Previse_Writeup.md) (Hashcat `$1$` MD5 crypt) · [Delivery](./facil/DELIVERY/Delivery_Writeup.md) (Hashcat regla `best66` + John sobre bcrypt) · [Driver](./facil/DRIVER/Driver_Writeup.md) (John sobre hash NTLMv2) |
 | **Captura de hashes NTLM (Responder / `.scf`)** | [Driver](./facil/DRIVER/Driver_Writeup.md) (fichero `.scf` malicioso → Responder) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (`.library-ms` malicioso → Responder, CVE-2025-24071) |
 | **Shadow Credentials / abuso de certificados** | [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (`msDS-KeyCredentialLink` vía `certipy-ad`, ESC16) |
+| **Kerberoasting / AS-REP Roasting** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (`GetNPUsers`, hashcat modo 18200) |
+| **DCSync / abuso de replicación de AD** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (`GetChangesAll`/`GetChanges` → `secretsdump`) |
+| **OSINT / enumeración de usuarios AD** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (LDAP anónimo + página web del equipo → diccionario de usuarios, `kerbrute`) |
 
 ---
 
@@ -176,7 +181,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 27 |
+| 🟢 Hack The Box | Estás aquí | 28 |
 
 ---
 
