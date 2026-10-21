@@ -4,9 +4,9 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-30-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-31-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
 [![Fácil](https://img.shields.io/badge/Fácil-27-00cc66?style=flat-square)](#-fácil)
-[![Medio](https://img.shields.io/badge/Medio-3-ffb703?style=flat-square)](#-medio)
+[![Medio](https://img.shields.io/badge/Medio-4-ffb703?style=flat-square)](#-medio)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
 > *"La mejor forma de aprender hacking es hackeando — y documentándolo."*
@@ -63,7 +63,8 @@ HackTheBox-Writeups-by-Arabot/
 └── medio/
     ├── APOCALYST/ → Apocalyst_Writeup.md + Imagenes/
     ├── BOLT/      → Bolt_Writeup.md      + Imagenes/
-    └── CHAOS/     → Chaos_Writeup.md     + Imagenes/
+    ├── CHAOS/     → Chaos_Writeup.md     + Imagenes/
+    └── CRAFT/     → Craft_Writeup.md     + Imagenes/
 ```
 
 ---
@@ -113,6 +114,7 @@ HackTheBox-Writeups-by-Arabot/
 | 1 | **Apocalyst** | 🐧 | Nmap · Gobuster · CeWL (diccionario propio) · Wfuzz (página oculta) · Esteganografía `steghide` (diccionario de contraseñas oculto) · WPScan (enumeración + fuerza bruta) · WordPress Theme Editor RCE · `/etc/passwd` escribible → root | [📄 Ver](./medio/APOCALYST/Apocalyst_Writeup.md) |
 | 2 | **Bolt** | 🐧 | Nmap · Gobuster (vhosts) · Análisis manual de imagen Docker (capas) · SQLite · Invite code hardcodeado en el código fuente · **SSTI ciego en Jinja2** → RCE · Passbolt (secretos PGP) · Clave privada PGP filtrada en extensión de Chrome · John/`gpg2john` → root | [📄 Ver](./medio/BOLT/Bolt_Writeup.md) |
 | 3 | **Chaos** | 🐧 | Nmap · Vhost fuzzing · WordPress (post protegido con credenciales filtradas) · Cliente IMAP (Claws Mail) · Cifrado AES casero + Base64 · **LaTeX Injection** (`\write18`) → RCE · Escape de `rbash` (GTFOBins `tar`) · PATH hijacking · Robo de perfil Firefox + `firefox_decrypt` → root | [📄 Ver](./medio/CHAOS/Chaos_Writeup.md) |
+| 4 | **Craft** | 🐧 | Nmap · Subdominios (`api`/`gogs.craft.htb`) · Minería de historial de commits en **Gogs** → credenciales filtradas + **inyección `eval()`** en API REST · Pivote a MySQL vía script transferido en base64 · Clave SSH filtrada en repo privado · **HashiCorp Vault** (rol SSH OTP `root_otp`) → root | [📄 Ver](./medio/CRAFT/Craft_Writeup.md) |
 
 ---
 
@@ -127,7 +129,7 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **ADCS / ESC attacks** | [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (**ESC16** — extensión de seguridad deshabilitada en la CA) |
 | **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (Raspberry Pi) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (patrón `Base+Año`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`admin:nibbles`) · [Toolbox](./facil/TOOLBOX/Toolbox_Writeup.md) (Boot2Docker `docker:tcuser`) · [Driver](./facil/DRIVER/Driver_Writeup.md) (`admin:admin`) |
 | **Backdoors en software** | [Irked](./facil/IRKED/Irked_Writeup.md) (UnrealIRCd) · [Knife](./facil/KNIFE/Knife_Writeup.md) (PHP 8.1.0-dev) |
-| **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) · [Love](./facil/LOVE/Love_Writeup.md) (SSRF + RCE) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (PRTG command injection) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (Nibbleblog file upload) · [Previse](./facil/PREVISE/Previse_Writeup.md) (forced browsing + command injection) · [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + service hijack) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (Flask wrapper + msfvenom) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (Shellshock CGI) · [Toolbox](./facil/TOOLBOX/Toolbox_Writeup.md) (PostgreSQL SQLi) · [Validation](./facil/VALIDATION/Validation_Writeup.md) (MySQL SQLi → webshell) · [Delivery](./facil/DELIVERY/Delivery_Writeup.md) (osTicket + Mattermost, verificación de email cruzada) · [Driver](./facil/DRIVER/Driver_Writeup.md) (subida de fichero malicioso) · [Trick](./facil/TRICK/Trick_Writeup.md) (SQLi + LFI) · [Apocalyst](./medio/APOCALYST/Apocalyst_Writeup.md) (WordPress Theme Editor RCE) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (SSTI Jinja2 → RCE) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (LaTeX Injection → RCE) |
+| **Web exploitation** | [Bashed](./facil/BASH/Bashed_Writeup.md) (phpbash) · [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat WAR) · [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (WebDAV) · [Cap](./facil/CAP/Cap_Writeup.md) (IDOR) · [Love](./facil/LOVE/Love_Writeup.md) (SSRF + RCE) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (PRTG command injection) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (Nibbleblog file upload) · [Previse](./facil/PREVISE/Previse_Writeup.md) (forced browsing + command injection) · [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + service hijack) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (Flask wrapper + msfvenom) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (Shellshock CGI) · [Toolbox](./facil/TOOLBOX/Toolbox_Writeup.md) (PostgreSQL SQLi) · [Validation](./facil/VALIDATION/Validation_Writeup.md) (MySQL SQLi → webshell) · [Delivery](./facil/DELIVERY/Delivery_Writeup.md) (osTicket + Mattermost, verificación de email cruzada) · [Driver](./facil/DRIVER/Driver_Writeup.md) (subida de fichero malicioso) · [Trick](./facil/TRICK/Trick_Writeup.md) (SQLi + LFI) · [Apocalyst](./medio/APOCALYST/Apocalyst_Writeup.md) (WordPress Theme Editor RCE) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (SSTI Jinja2 → RCE) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (LaTeX Injection → RCE) · [Craft](./medio/CRAFT/Craft_Writeup.md) (inyección `eval()` en API REST) |
 | **SQL Injection** | [Toolbox](./facil/TOOLBOX/Toolbox_Writeup.md) (PostgreSQL stacked queries + `COPY FROM PROGRAM` → RCE) · [Validation](./facil/VALIDATION/Validation_Writeup.md) (MySQL `UNION SELECT ... INTO OUTFILE` → RCE) · [Trick](./facil/TRICK/Trick_Writeup.md) (bypass de login `' or 1=1-- -`) |
 | **SSRF (Server-Side Request Forgery)** | [Love](./facil/LOVE/Love_Writeup.md) (File Scanner → servicio interno) |
 | **Sudo abuse / GTFOBins** | [Bashed](./facil/BASH/Bashed_Writeup.md) (scriptmanager) · [Knife](./facil/KNIFE/Knife_Writeup.md) (`knife exec`) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (`NOPASSWD: ALL`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`NOPASSWD` + path creation) · [Previse](./facil/PREVISE/Previse_Writeup.md) (`sudo` + PATH hijacking) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (`sudo msfconsole` → `!bash`) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (`sudo perl -e 'exec ...'`) · [Trick](./facil/TRICK/Trick_Writeup.md) (`sudo` sobre `fail2ban`) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (escape de `rbash` con `tar`) |
@@ -142,7 +144,7 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **SSTI (Server-Side Template Injection)** | [Bolt](./medio/BOLT/Bolt_Writeup.md) (Jinja2 ciego → RCE) |
 | **LaTeX Injection** | [Chaos](./medio/CHAOS/Chaos_Writeup.md) (`\write18` → RCE) |
 | **Análisis de imágenes Docker** | [Bolt](./medio/BOLT/Bolt_Writeup.md) (capas, código fuente y base de datos filtrados) |
-| **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (Passbolt, secretos PGP) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (gestor de contraseñas de Firefox) |
+| **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (Passbolt, secretos PGP) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (gestor de contraseñas de Firefox) · [Craft](./medio/CRAFT/Craft_Writeup.md) (HashiCorp Vault, rol SSH OTP) |
 | **PATH hijacking** | [Previse](./facil/PREVISE/Previse_Writeup.md) (sudo + PATH) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (`rbash` con `PATH` restringido) |
 | **FTP anónimo** | [Netmon](./facil/NETMON/Netmon_Writeup.md) · [Access](./facil/ACCESS/Access_Writeup.md) (backup `.mdb` + ZIP protegido) |
 | **Cracking de hashes (John / Hashcat)** | [Previse](./facil/PREVISE/Previse_Writeup.md) (Hashcat `$1$` MD5 crypt) · [Delivery](./facil/DELIVERY/Delivery_Writeup.md) (Hashcat regla `best66` + John sobre bcrypt) · [Driver](./facil/DRIVER/Driver_Writeup.md) (John sobre hash NTLMv2) · [Active](./facil/ACTIVE/Active_Writeup.md) (John sobre hash TGS) |
@@ -155,6 +157,9 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **LFI (Local File Inclusion)** | [Trick](./facil/TRICK/Trick_Writeup.md) (bypass de filtro de traversal con `....//`) |
 | **fail2ban privilege escalation** | [Trick](./facil/TRICK/Trick_Writeup.md) (`sudo` + escritura de grupo sobre `action.d` → `actionban` arbitrario) |
 | **GPP cpassword** | [Active](./facil/ACTIVE/Active_Writeup.md) (`Groups.xml` + `gpp-decrypt`) |
+| **Minería de historial de Git / control de versiones** | [Craft](./medio/CRAFT/Craft_Writeup.md) (credenciales y vulnerabilidad introducida en commits de Gogs) |
+| **`eval()` / `exec()` injection** | [Craft](./medio/CRAFT/Craft_Writeup.md) (campo `abv` evaluado directamente como código Python) |
+| **Pivoting contenedor → host real** | [Craft](./medio/CRAFT/Craft_Writeup.md) (credenciales de DB y clave SSH filtradas en el repo de infraestructura) |
 
 ---
 
@@ -189,7 +194,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 30 |
+| 🟢 Hack The Box | Estás aquí | 31 |
 
 ---
 
