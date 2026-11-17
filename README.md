@@ -4,9 +4,9 @@
 
 **Resoluciones paso a paso · En español · Para principiantes**
 
-[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-32-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
+[![Máquinas resueltas](https://img.shields.io/badge/Máquinas%20resueltas-33-00ff88?style=flat-square&logo=hackthebox&logoColor=white)](#)
 [![Fácil](https://img.shields.io/badge/Fácil-28-00cc66?style=flat-square)](#-fácil)
-[![Medio](https://img.shields.io/badge/Medio-4-ffb703?style=flat-square)](#-medio)
+[![Medio](https://img.shields.io/badge/Medio-5-ffb703?style=flat-square)](#-medio)
 [![Autor](https://img.shields.io/badge/Autor-Arabot-ff6b35?style=flat-square&logo=github&logoColor=white)](https://github.com/Caan31)
 
 > *"La mejor forma de aprender hacking es hackeando — y documentándolo."*
@@ -62,10 +62,11 @@ HackTheBox-Writeups-by-Arabot/
     ├── TRICK/        → Trick_Writeup.md        + Imagenes/
     └── VALIDATION/   → Validation_Writeup.md   + Imagenes/
 └── medio/
-    ├── APOCALYST/ → Apocalyst_Writeup.md + Imagenes/
-    ├── BOLT/      → Bolt_Writeup.md      + Imagenes/
-    ├── CHAOS/     → Chaos_Writeup.md     + Imagenes/
-    └── CRAFT/     → Craft_Writeup.md     + Imagenes/
+    ├── ADMINISTRATOR/ → Administrator_Writeup.md + Imagenes/
+    ├── APOCALYST/     → Apocalyst_Writeup.md     + Imagenes/
+    ├── BOLT/          → Bolt_Writeup.md          + Imagenes/
+    ├── CHAOS/         → Chaos_Writeup.md         + Imagenes/
+    └── CRAFT/         → Craft_Writeup.md         + Imagenes/
 ```
 
 ---
@@ -113,10 +114,11 @@ HackTheBox-Writeups-by-Arabot/
 
 | # | Máquina | SO | Técnicas principales | Writeup |
 |:-:|---------|:--:|---------------------|:-------:|
-| 1 | **Apocalyst** | 🐧 | Nmap · Gobuster · CeWL (diccionario propio) · Wfuzz (página oculta) · Esteganografía `steghide` (diccionario de contraseñas oculto) · WPScan (enumeración + fuerza bruta) · WordPress Theme Editor RCE · `/etc/passwd` escribible → root | [📄 Ver](./medio/APOCALYST/Apocalyst_Writeup.md) |
-| 2 | **Bolt** | 🐧 | Nmap · Gobuster (vhosts) · Análisis manual de imagen Docker (capas) · SQLite · Invite code hardcodeado en el código fuente · **SSTI ciego en Jinja2** → RCE · Passbolt (secretos PGP) · Clave privada PGP filtrada en extensión de Chrome · John/`gpg2john` → root | [📄 Ver](./medio/BOLT/Bolt_Writeup.md) |
-| 3 | **Chaos** | 🐧 | Nmap · Vhost fuzzing · WordPress (post protegido con credenciales filtradas) · Cliente IMAP (Claws Mail) · Cifrado AES casero + Base64 · **LaTeX Injection** (`\write18`) → RCE · Escape de `rbash` (GTFOBins `tar`) · PATH hijacking · Robo de perfil Firefox + `firefox_decrypt` → root | [📄 Ver](./medio/CHAOS/Chaos_Writeup.md) |
-| 4 | **Craft** | 🐧 | Nmap · Subdominios (`api`/`gogs.craft.htb`) · Minería de historial de commits en **Gogs** → credenciales filtradas + **inyección `eval()`** en API REST · Pivote a MySQL vía script transferido en base64 · Clave SSH filtrada en repo privado · **HashiCorp Vault** (rol SSH OTP `root_otp`) → root | [📄 Ver](./medio/CRAFT/Craft_Writeup.md) |
+| 1 | **Administrator** | 🪟 | Nmap · `kerbrute` · BloodHound (abuso de ACLs encadenado: `GenericAll`/`ForceChangePassword`/`GenericWrite`) · FTP → base de datos **Password Safe** crackeada · **Kerberoasting dirigido** (`targetedKerberoast.py`) · **DCSync** (`secretsdump`) → SYSTEM | [📄 Ver](./medio/ADMINISTRATOR/Administrator_Writeup.md) |
+| 2 | **Apocalyst** | 🐧 | Nmap · Gobuster · CeWL (diccionario propio) · Wfuzz (página oculta) · Esteganografía `steghide` (diccionario de contraseñas oculto) · WPScan (enumeración + fuerza bruta) · WordPress Theme Editor RCE · `/etc/passwd` escribible → root | [📄 Ver](./medio/APOCALYST/Apocalyst_Writeup.md) |
+| 3 | **Bolt** | 🐧 | Nmap · Gobuster (vhosts) · Análisis manual de imagen Docker (capas) · SQLite · Invite code hardcodeado en el código fuente · **SSTI ciego en Jinja2** → RCE · Passbolt (secretos PGP) · Clave privada PGP filtrada en extensión de Chrome · John/`gpg2john` → root | [📄 Ver](./medio/BOLT/Bolt_Writeup.md) |
+| 4 | **Chaos** | 🐧 | Nmap · Vhost fuzzing · WordPress (post protegido con credenciales filtradas) · Cliente IMAP (Claws Mail) · Cifrado AES casero + Base64 · **LaTeX Injection** (`\write18`) → RCE · Escape de `rbash` (GTFOBins `tar`) · PATH hijacking · Robo de perfil Firefox + `firefox_decrypt` → root | [📄 Ver](./medio/CHAOS/Chaos_Writeup.md) |
+| 5 | **Craft** | 🐧 | Nmap · Subdominios (`api`/`gogs.craft.htb`) · Minería de historial de commits en **Gogs** → credenciales filtradas + **inyección `eval()`** en API REST · Pivote a MySQL vía script transferido en base64 · Clave SSH filtrada en repo privado · **HashiCorp Vault** (rol SSH OTP `root_otp`) → root | [📄 Ver](./medio/CRAFT/Craft_Writeup.md) |
 
 ---
 
@@ -127,7 +129,7 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | Categoría | Máquina(s) |
 |-----------|------------|
 | **CVEs clásicas** | [Grandpa](./facil/GRANDPA/Grandpa_Writeup.md) (CVE-2017-7269) · [Irked](./facil/IRKED/Irked_Writeup.md) / [Lame](./facil/LAME/Lame_Writeup.md) (CVE-2007-2447) · [Legacy](./facil/LEGACY/Legacy_Writeup.md) (MS08-067) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (CVE-2023-32784) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (CVE-2018-9276) · [ScriptKiddie](./facil/SCRIPTKIDDIE/ScriptKiddie_Writeup.md) (CVE-2020-7384) · [Shocker](./facil/SHOCKER/Shocker_Writeup.md) (CVE-2014-6271 / Shellshock) · [Driver](./facil/DRIVER/Driver_Writeup.md) (CVE-2021-1675 / PrintNightmare) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (CVE-2025-24071, fuga NTLM vía `.library-ms`) |
-| **Active Directory** | [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + Server Operators) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (abuso de ACLs con `bloodyAD`, Shadow Credentials) · [Sauna](./facil/SAUNA/Sauna_Writeup.md) (AS-REP Roasting, AutoLogon, DCSync) · [Active](./facil/ACTIVE/Active_Writeup.md) (GPP cpassword, Kerberoasting) · [Baby](./facil/BABY/Baby_Writeup.md) (SeBackupPrivilege, Shadow Copy, NTDS.dit) |
+| **Active Directory** | [Return](./facil/RETURN/Return_Writeup.md) (rogue LDAP + Server Operators) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (abuso de ACLs con `bloodyAD`, Shadow Credentials) · [Sauna](./facil/SAUNA/Sauna_Writeup.md) (AS-REP Roasting, AutoLogon, DCSync) · [Active](./facil/ACTIVE/Active_Writeup.md) (GPP cpassword, Kerberoasting) · [Baby](./facil/BABY/Baby_Writeup.md) (SeBackupPrivilege, Shadow Copy, NTDS.dit) · [Administrator](./medio/ADMINISTRATOR/Administrator_Writeup.md) (cadena de abuso de ACLs vía BloodHound, Kerberoasting dirigido, DCSync) |
 | **ADCS / ESC attacks** | [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (**ESC16** — extensión de seguridad deshabilitada en la CA) |
 | **Credenciales por defecto / débiles** | [Jerry](./facil/JERRY/Jerry_Writeup.md) (Tomcat) · [Keeper](./facil/KEEPER/Keeper_Writeup.md) (Request Tracker) · [Mirai](./facil/MIRAI/Mirai_Writeup.md) (Raspberry Pi) · [Netmon](./facil/NETMON/Netmon_Writeup.md) (patrón `Base+Año`) · [Nibbles](./facil/NIBBLES/Nibbles_Writeup.md) (`admin:nibbles`) · [Toolbox](./facil/TOOLBOX/Toolbox_Writeup.md) (Boot2Docker `docker:tcuser`) · [Driver](./facil/DRIVER/Driver_Writeup.md) (`admin:admin`) · [Baby](./facil/BABY/Baby_Writeup.md) (contraseña inicial filtrada en LDAP) |
 | **Backdoors en software** | [Irked](./facil/IRKED/Irked_Writeup.md) (UnrealIRCd) · [Knife](./facil/KNIFE/Knife_Writeup.md) (PHP 8.1.0-dev) |
@@ -146,14 +148,14 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **SSTI (Server-Side Template Injection)** | [Bolt](./medio/BOLT/Bolt_Writeup.md) (Jinja2 ciego → RCE) |
 | **LaTeX Injection** | [Chaos](./medio/CHAOS/Chaos_Writeup.md) (`\write18` → RCE) |
 | **Análisis de imágenes Docker** | [Bolt](./medio/BOLT/Bolt_Writeup.md) (capas, código fuente y base de datos filtrados) |
-| **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (Passbolt, secretos PGP) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (gestor de contraseñas de Firefox) · [Craft](./medio/CRAFT/Craft_Writeup.md) (HashiCorp Vault, rol SSH OTP) |
+| **Gestores de contraseñas / secretos** | [Keeper](./facil/KEEPER/Keeper_Writeup.md) (KeePass + clave PuTTY) · [Bolt](./medio/BOLT/Bolt_Writeup.md) (Passbolt, secretos PGP) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (gestor de contraseñas de Firefox) · [Craft](./medio/CRAFT/Craft_Writeup.md) (HashiCorp Vault, rol SSH OTP) · [Administrator](./medio/ADMINISTRATOR/Administrator_Writeup.md) (base de datos Password Safe `.psafe3`) |
 | **PATH hijacking** | [Previse](./facil/PREVISE/Previse_Writeup.md) (sudo + PATH) · [Chaos](./medio/CHAOS/Chaos_Writeup.md) (`rbash` con `PATH` restringido) |
 | **FTP anónimo** | [Netmon](./facil/NETMON/Netmon_Writeup.md) · [Access](./facil/ACCESS/Access_Writeup.md) (backup `.mdb` + ZIP protegido) |
-| **Cracking de hashes (John / Hashcat)** | [Previse](./facil/PREVISE/Previse_Writeup.md) (Hashcat `$1$` MD5 crypt) · [Delivery](./facil/DELIVERY/Delivery_Writeup.md) (Hashcat regla `best66` + John sobre bcrypt) · [Driver](./facil/DRIVER/Driver_Writeup.md) (John sobre hash NTLMv2) · [Active](./facil/ACTIVE/Active_Writeup.md) (John sobre hash TGS) |
+| **Cracking de hashes (John / Hashcat)** | [Previse](./facil/PREVISE/Previse_Writeup.md) (Hashcat `$1$` MD5 crypt) · [Delivery](./facil/DELIVERY/Delivery_Writeup.md) (Hashcat regla `best66` + John sobre bcrypt) · [Driver](./facil/DRIVER/Driver_Writeup.md) (John sobre hash NTLMv2) · [Active](./facil/ACTIVE/Active_Writeup.md) (John sobre hash TGS) · [Administrator](./medio/ADMINISTRATOR/Administrator_Writeup.md) (John sobre `.psafe3`, Hashcat modo 13100 sobre TGS) |
 | **Captura de hashes NTLM (Responder / `.scf`)** | [Driver](./facil/DRIVER/Driver_Writeup.md) (fichero `.scf` malicioso → Responder) · [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (`.library-ms` malicioso → Responder, CVE-2025-24071) |
 | **Shadow Credentials / abuso de certificados** | [Fluffy](./facil/FLUFFY/Fluffy_Writeup.md) (`msDS-KeyCredentialLink` vía `certipy-ad`, ESC16) |
-| **Kerberoasting / AS-REP Roasting** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (`GetNPUsers`, hashcat modo 18200) · [Active](./facil/ACTIVE/Active_Writeup.md) (`GetUserSPNs` sobre el SPN de Administrator) |
-| **DCSync / abuso de replicación de AD** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (`GetChangesAll`/`GetChanges` → `secretsdump`) |
+| **Kerberoasting / AS-REP Roasting** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (`GetNPUsers`, hashcat modo 18200) · [Active](./facil/ACTIVE/Active_Writeup.md) (`GetUserSPNs` sobre el SPN de Administrator) · [Administrator](./medio/ADMINISTRATOR/Administrator_Writeup.md) (Kerberoasting dirigido vía `GenericWrite`) |
+| **DCSync / abuso de replicación de AD** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (`GetChangesAll`/`GetChanges` → `secretsdump`) · [Administrator](./medio/ADMINISTRATOR/Administrator_Writeup.md) (`GetChanges`/`GetChangesAll` sobre una cuenta estándar) |
 | **OSINT / enumeración de usuarios AD** | [Sauna](./facil/SAUNA/Sauna_Writeup.md) (LDAP anónimo + página web del equipo → diccionario de usuarios, `kerbrute`) · [Baby](./facil/BABY/Baby_Writeup.md) (LDAP anónimo → usuarios + política de contraseña) |
 | **Transferencia de zona DNS (AXFR)** | [Trick](./facil/TRICK/Trick_Writeup.md) (filtra subdominio `preprod-payroll`) |
 | **LFI (Local File Inclusion)** | [Trick](./facil/TRICK/Trick_Writeup.md) (bypass de filtro de traversal con `....//`) |
@@ -165,6 +167,7 @@ Si te interesa una vulnerabilidad concreta, aquí tienes el atajo:
 | **Password spraying** | [Baby](./facil/BABY/Baby_Writeup.md) (contraseña inicial filtrada por LDAP contra toda la lista de usuarios) |
 | **SeBackupPrivilege / Backup Operators** | [Baby](./facil/BABY/Baby_Writeup.md) (`reg save` + Shadow Copy → `ntds.dit`) |
 | **Volume Shadow Copy (VSS) / `ntds.dit` extraction** | [Baby](./facil/BABY/Baby_Writeup.md) (`diskshadow` para sortear el bloqueo del fichero en uso) |
+| **Abuso de ACLs de AD encadenado (BloodHound)** | [Administrator](./medio/ADMINISTRATOR/Administrator_Writeup.md) (`GenericAll`/`ForceChangePassword`/`GenericWrite` en cadena) |
 
 ---
 
@@ -199,7 +202,7 @@ La diferencia principal con DockerLabs es que en HTB las máquinas son más real
 | Plataforma | Repositorio | Máquinas |
 |-----------|-------------|:--------:|
 | 🐋 DockerLabs | [Ver repositorio](https://github.com/Caan31/-DockerLabs-Writeups-by-Arabot) | 64 |
-| 🟢 Hack The Box | Estás aquí | 32 |
+| 🟢 Hack The Box | Estás aquí | 33 |
 
 ---
 
